@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+  frontend:
+    container_name: wwtbam
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - /c/Users/Deven/Desktop/Work/projects/who_wants_to_be_a_millionare:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3000:3000
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+    stdin_open: true
+    restart: always
