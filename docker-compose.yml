@@ -1,16 +1,26 @@
 version: "3.7"
 services:
   frontend:
-    container_name: wwtbam
+    container_name: frontend
     build:
-      context: .
+      context: frontend/
       dockerfile: Dockerfile
     volumes:
-      - /c/Users/Deven/Desktop/Work/projects/who_wants_to_be_a_millionare:/usr/src/app
+      - /c/Users/Deven/Desktop/Work/projects/who_wants_to_be_a_millionare/frontend:/usr/src/app
       - /usr/src/app/node_modules
     ports:
       - 3000:3000
     environment:
       CHOKIDAR_USEPOLLING: "true"
     stdin_open: true
+    restart: always
+
+  backend:
+    build: backend/
+    container_name: backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/usr/src/app
+    ports:
+      - 8000:8000
     restart: always
