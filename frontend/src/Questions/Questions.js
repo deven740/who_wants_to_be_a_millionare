@@ -1,7 +1,22 @@
 import React, { Component } from "react";
 import { Button, Grid, Paper } from "@mui/material";
+import axios from "axios";
 
 export default class Questions extends Component {
+  static defaultProps = {
+    num_questions: 10,
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = { questions: [] };
+  }
+
+  async componentDidMount() {
+    let res = await axios.get("http://localhost:8000/api/");
+    console.log(res.data);
+  }
+
   render() {
     return (
       <div
@@ -17,7 +32,7 @@ export default class Questions extends Component {
           <Grid item xs={12}>
             <Paper
               variant="outlined"
-              elevation={3}
+              elevation={0}
               style={{
                 background: "linear-gradient(#100241, black)",
                 color: "white",
@@ -34,7 +49,7 @@ export default class Questions extends Component {
           <Grid item xs={6}>
             <Paper
               variant="outlined"
-              elevation={3}
+              elevation={0}
               style={{
                 background: "linear-gradient(#0e0124, #22074d)",
                 color: "white",
@@ -46,7 +61,7 @@ export default class Questions extends Component {
           <Grid item xs={6}>
             <Paper
               variant="outlined"
-              elevation={3}
+              elevation={0}
               style={{
                 background: "linear-gradient(#0e0124, #22074d)",
                 color: "white",
@@ -58,7 +73,7 @@ export default class Questions extends Component {
           <Grid item xs={6}>
             <Paper
               variant="outlined"
-              elevation={3}
+              elevation={0}
               style={{
                 background: "linear-gradient(#0e0124, #22074d)",
                 color: "white",
@@ -70,7 +85,7 @@ export default class Questions extends Component {
           <Grid item xs={6}>
             <Paper
               variant="outlined"
-              elevation={3}
+              elevation={0}
               style={{
                 background: "linear-gradient(#0e0124, #22074d)",
                 color: "white",

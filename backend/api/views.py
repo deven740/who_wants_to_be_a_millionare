@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 
-# Create your views here.
+def get_questions(request):
+    print('hellloooo')
+    return HttpResponse('Questions with answers')
