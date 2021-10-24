@@ -1,13 +1,14 @@
 import logo from "./homepage.png";
 import "./App.css";
 import Questions from "./Questions/Questions";
+import Quiz from "./Quiz/Quiz";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" width="100%" />
-        <Questions />
+        <Quiz />
       </header>
     </div>
   );
