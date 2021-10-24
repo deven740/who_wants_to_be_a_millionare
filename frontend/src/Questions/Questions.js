@@ -8,6 +8,12 @@ export default class Questions extends Component {
     console.log(this.props.question);
   }
 
+  handleClick = (evt) => {
+    // option_id = evt.target.value;
+    this.props.checkAnswer(evt.target.value);
+    // console.log(evt.target.value);
+  };
+
   render() {
     return (
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -26,18 +32,18 @@ export default class Questions extends Component {
             {this.props.question}
           </Paper>
         </Grid>
-        {Object.keys(this.props.options).map((option) => (
+        {this.props.options.map((option, id) => (
           <Grid item xs={6}>
-            <Paper
-              variant="outlined"
-              elevation={0}
+            <Button
+              onClick={this.handleClick}
+              value={id}
               style={{
                 background: "linear-gradient(#0e0124, #22074d)",
                 color: "white",
               }}
             >
               {option}
-            </Paper>
+            </Button>
           </Grid>
         ))}
       </Grid>

@@ -14,14 +14,20 @@ export default class Quiz extends Component {
 
   async componentDidMount() {
     let res = await axios.get("http://localhost:8000/api/");
-    // questions.push();
     this.setState({ questions: res.data });
   }
 
+  checkAnswer = (selected_option) => {
+    Number(selected_option) ===
+    this.state.questions[this.state.current_question]["correct_answer"]
+      ? this.setState((prevState) => ({
+          ...prevState.questions,
+          current_question: prevState.current_question + 1,
+        }))
+      : window.alert("answer is wrong");
+  };
+
   render() {
-    // this.state.questions.map((question) => {
-    //   console.log(question.question);
-    // });
     return (
       <div
         style={{
@@ -36,6 +42,7 @@ export default class Quiz extends Component {
             <Questions
               question={question.question}
               options={question.options}
+              checkAnswer={this.checkAnswer}
             />
           ) : null
         )}

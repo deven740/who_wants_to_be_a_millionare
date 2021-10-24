@@ -8,12 +8,8 @@ def get_questions(request):
     "id": 1,
     "question": "How to delete a directory in Linux?",
     "description": "delete folder",
-    "options": {
-      "answer_a": "ls",
-      "answer_b": "delete",
-      "answer_c": "remove",
-      "answer_d": "rmdir",
-    },
+    "options": ["ls", "delete", "remove", "rmdir"],
+    "correct_answer": 3,
     "explanation": "rmdir deletes an empty directory",
     "difficulty": "Easy"
   },
@@ -21,12 +17,8 @@ def get_questions(request):
     "id": 2,
     "question": "How to delete a directory in Windows?",
     "description": "delete folder",
-    "options": {
-      "option_a": "ls",
-      "option_b": "delete",
-      "option_c": "remove",
-      "option_d": "rmdir",
-    },
+    "options": ["ls", "del", "remove", "rmdir"],
+    "correct_answer": 2,
     "explanation": "rmdir deletes an empty directory",
     "difficulty": "Easy"
   },
