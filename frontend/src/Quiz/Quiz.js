@@ -63,7 +63,9 @@ export default class Quiz extends Component {
               open={true}
               onClick={this.startGame}
             />
-            <h1>You lost, click here to play again</h1>
+            <h1>{`You lost, you won ${
+              this.state.current_question * 1000
+            }RS click here to play again`}</h1>
           </div>
         ) : (
           <div
