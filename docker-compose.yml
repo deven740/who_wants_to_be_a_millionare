@@ -24,3 +24,18 @@ services:
     ports:
       - 8000:8000
     restart: always
+
+  db:
+    image: mongo
+    container_name: mongo_db
+    environment:
+      - MONGO_INITDB_DATABASE=mongo_db
+      - MONGO_INITDB_ROOT_USERNAME=deven
+      - MONGO_INITDB_ROOT_PASSWORD=deven
+    volumes:
+      - mongo_db:/data/db
+    restart: always
+
+volumes:
+  mongo_db:
+    external: false

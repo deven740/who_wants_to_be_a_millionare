@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 import json
 from random import shuffle
+from db_connection import get_db_handle
 
 def get_questions(request):
     print('hellloooo')
@@ -70,6 +71,8 @@ def get_questions(request):
   },
 
   ]
+
+    db, client = get_db_handle('mongo_db','mongodb://deven:deven@db:27017/', 27017, 'deven', 'deven')
 
     shuffle(a)
     return HttpResponse(json.dumps(a))
