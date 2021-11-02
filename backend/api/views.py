@@ -6,9 +6,9 @@ from db_connection import get_db_handle
 def get_questions(request):
     print('hellloooo')
     a = [
-        {
+  {
     "id": 1,
-    "question": "How to delete a directory in Linux?",
+    "question": "How to delete a directory in Linuxsss?",
     "description": "delete folder",
     "options": ["ls", "delete", "remove", "rmdir"],
     "correct_answer": 3,
