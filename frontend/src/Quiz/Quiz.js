@@ -6,7 +6,7 @@ import Questions from "../Questions/Questions";
 
 export default class Quiz extends Component {
   static defaultProps = {
-    num_questions: 10,
+    num_questions: 7,
   };
 
   constructor(props) {
@@ -39,10 +39,11 @@ export default class Quiz extends Component {
   checkAnswer = (selected_option) => {
     Number(selected_option) ===
     this.state.questions[this.state.current_question]["correct_answer"]
-      ? this.setState((prevState) => ({
-          ...prevState.questions,
-          current_question: prevState.current_question + 1,
-        }))
+      ? this.state.current_question + 1 === this.props.num_questions
+        ? this.setState({ overlay: true })
+        : this.setState((prevState) => ({
+            current_question: prevState.current_question + 1,
+          }))
       : this.setState({ overlay: true });
   };
 
@@ -63,9 +64,13 @@ export default class Quiz extends Component {
               open={true}
               onClick={this.startGame}
             />
-            <h1>{`You lost, you won ${
-              this.state.current_question * 1000
-            }RS click here to play again`}</h1>
+            {this.state.current_question + 1 === this.props.num_questions ? (
+              <h1>you are a millionare</h1>
+            ) : (
+              <h1>{`You lost, you won ${
+                this.state.current_question * 1000
+              }RS click here to play again`}</h1>
+            )}
           </div>
         ) : (
           <div
