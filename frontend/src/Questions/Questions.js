@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import { Button, Grid, Paper } from "@mui/material";
-import axios from "axios";
 
 export default class Questions extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.question);
   }
 
   handleClick = (evt) => {
-    // option_id = evt.target.value;
     this.props.checkAnswer(evt.target.value);
-    // console.log(evt.target.value);
   };
 
   render() {

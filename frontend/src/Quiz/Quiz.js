@@ -26,7 +26,6 @@ export default class Quiz extends Component {
 
   async componentDidUpdate() {
     if (this.state.game_over) {
-      console.log("you lost");
       let res = await axios.get("http://localhost:8000/api/");
       this.setState({
         questions: res.data,

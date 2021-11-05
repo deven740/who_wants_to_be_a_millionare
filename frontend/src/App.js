@@ -1,6 +1,5 @@
 import logo from "./homepage.png";
 import "./App.css";
-import Questions from "./Questions/Questions";
 import Quiz from "./Quiz/Quiz";
 
 function App() {
