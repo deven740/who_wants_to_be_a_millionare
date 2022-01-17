@@ -11,5 +11,5 @@ def get_questions(request):
     questions = db.questions.find()
     questions = [question for question in questions]
     shuffle(questions)
-      
+    
     return HttpResponse(dumps(questions))
