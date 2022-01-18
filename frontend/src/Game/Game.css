@@ -43,6 +43,7 @@
 
 .option:hover {
   background: gold;
+  color: black;
 }
 
 .correct {
