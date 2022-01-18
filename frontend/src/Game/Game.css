@@ -1,0 +1,54 @@
+.game {
+  width: 75%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
+    url("../homepage.png") center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.game div {
+  border-radius: 8px;
+}
+
+.question {
+  background: linear-gradient(#100241, black);
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  border: 2px solid white;
+}
+
+.options {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+}
+
+.option {
+  /* gap: 8px; */
+  /* padding: 8px; */
+  text-align: center;
+  padding: 12px;
+  background: linear-gradient(#0e0124, #22074d);
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: gold;
+}
+
+.correct {
+  background: green;
+}
+
+.wrong {
+  background: red;
+}

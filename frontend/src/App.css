@@ -4,9 +4,3 @@
   background-color: #020230;
   display: flex;
 }
-
-.game {
-  width: 75%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230),
-    url("homepage.png") center;
-}
