@@ -3,11 +3,13 @@ import json
 from random import shuffle
 from db_connection import get_db_handle
 from bson.json_util import dumps
+from time import sleep
 
 db, client = get_db_handle('mongo_db','mongodb://deven:deven@db:27017/', 27017, 'deven', 'deven')
 
 
 def get_questions(request):
+    sleep(10)
     questions = db.questions.find()
     questions = [question for question in questions]
     shuffle(questions)

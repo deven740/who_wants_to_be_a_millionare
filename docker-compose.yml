@@ -6,9 +6,8 @@ services:
       context: frontend/
       dockerfile: Dockerfile
     volumes:
-      - /c/Users/Deven/Work/projects/who_wants_to_be_a_millionare/frontend:/usr/src/app
+      - ./frontend:/usr/src/app
       - /usr/src/app/node_modules
-      - /c/Users/Deven/dataset:/usr/src/app/public/images
     ports:
       - 3000:3000
     environment:
@@ -22,7 +21,6 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
       - ./backend:/usr/src/app
-      - /c/Users/Deven/Desktop/:/mnt/
     ports:
       - 8000:8000
     restart: always
