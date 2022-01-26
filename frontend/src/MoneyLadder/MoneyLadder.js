@@ -40,7 +40,7 @@ function MoneyLadder() {
         </div>
       </div>
       <ul className="prize-list">
-        <div className="prize-list-item">
+        <div className="prize-list-item active">
           <div className="arrow-left"></div>
           <div className="rectangle">$ 100</div>
           <div className="arrow-right"></div>
@@ -110,19 +110,6 @@ function MoneyLadder() {
           <div className="rectangle">$ 1000000</div>
           <div className="arrow-right"></div>
         </div>
-
-        {/* <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li>
-          <li className="prize">$ 200</li> */}
       </ul>
     </div>
   );

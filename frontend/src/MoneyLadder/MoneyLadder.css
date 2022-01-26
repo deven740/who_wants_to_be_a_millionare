@@ -96,15 +96,15 @@
   border-left: 16px solid darkblue;
 }
 
-.prize-list-item:hover .arrow-left {
+.active .arrow-left {
   border-right: 20px solid gold;
 }
 
-.prize-list-item:hover .arrow-right {
+.active .arrow-right {
   border-left: 20px solid gold;
 }
 
-.prize-list-item:hover .rectangle {
+.active .rectangle {
   background-color: gold;
   color: black;
 }

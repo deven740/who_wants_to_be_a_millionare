@@ -37,13 +37,14 @@
   background: linear-gradient(#0e0124, #22074d);
   border: 2px solid white;
   cursor: pointer;
-  /* animation: blinker 1s linear infinite; */
+  color: white;
+  font-size: large;
+  font-weight: bold;
 }
 
-/* .option:hover {
-  background: gold;
-  color: #000000;
-} */
+.option:hover {
+  background: mediumblue;
+}
 
 .correct {
   animation: correct 3s ease forwards;
