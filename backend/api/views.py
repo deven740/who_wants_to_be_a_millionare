@@ -9,7 +9,6 @@ db, client = get_db_handle('mongo_db','mongodb://deven:deven@db:27017/', 27017, 
 
 
 def get_questions(request):
-    sleep(10)
     questions = db.questions.find()
     questions = [question for question in questions]
     shuffle(questions)

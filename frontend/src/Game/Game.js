@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 
@@ -10,12 +10,12 @@ export default class Game extends Component {
 
     this.state = {
       questions: [],
+      currentQuestion: 0,
     };
   }
 
   componentDidMount() {
-    const res = axios.get("http://localhost:8000/api/").then((res) => {
-      console.log(res);
+    axios.get("http://localhost:8000/api/").then((res) => {
       this.setState({ questions: res.data });
     });
   }
@@ -23,14 +23,23 @@ export default class Game extends Component {
   render() {
     return (
       <div className="game">
-        <div className="question">Who wants to be a millionare ?</div>
-        <br />
-        <div className="options">
-          <div className="option">A</div>
-          <div className="option">B</div>
-          <div className="option">C</div>
-          <div className="option">D</div>
-        </div>
+        {this.state.questions
+          ? this.state.questions.map((question, id) => {
+              if (id === this.state.currentQuestion) {
+                return (
+                  <Fragment>
+                    <div className="question">{question.question}</div>
+                    <br />
+                    <div className="options">
+                      {question.options.map((option) => {
+                        return <div className="option">{option}</div>;
+                      })}
+                    </div>
+                  </Fragment>
+                );
+              }
+            })
+          : null}
       </div>
     );
   }
