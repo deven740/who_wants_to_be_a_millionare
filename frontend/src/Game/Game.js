@@ -20,6 +20,13 @@ export default class Game extends Component {
     });
   }
 
+  checkAnswer = (e) => {
+    const selectedAnswer = Number(e.target.value);
+
+    this.state.questions[this.state.currentQuestion].correct_answer ===
+      selectedAnswer;
+  };
+
   render() {
     return (
       <div className="game">
@@ -31,8 +38,16 @@ export default class Game extends Component {
                     <div className="question">{question.question}</div>
                     <br />
                     <div className="options">
-                      {question.options.map((option) => {
-                        return <div className="option">{option}</div>;
+                      {question.options.map((option, id) => {
+                        return (
+                          <button
+                            className="option"
+                            value={id}
+                            onClick={this.checkAnswer}
+                          >
+                            {option}
+                          </button>
+                        );
                       })}
                     </div>
                   </Fragment>
