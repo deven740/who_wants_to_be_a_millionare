@@ -16,7 +16,11 @@ export default class Game extends Component {
   }
 
   componentDidMount() {
+    let questionsArrayLength;
+
     axios.get("http://localhost:8000/api/").then((res) => {
+      questionsArrayLength = res.data.length;
+      this.props.getNumberOfQuestions(questionsArrayLength);
       this.setState({ questions: res.data });
     });
   }
