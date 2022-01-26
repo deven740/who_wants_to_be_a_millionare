@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
 import axios from "axios";
 
 import "./Game.css";
@@ -31,6 +30,18 @@ export default class Game extends Component {
       activeClassIndex: selectedAnswer,
       activeClass: isCorrect ? "correct" : "wrong",
     });
+
+    if (isCorrect) {
+      setTimeout(
+        () =>
+          this.setState({
+            currentQuestion: this.state.currentQuestion + 1,
+            activeClassIndex: null,
+            activeClass: "",
+          }),
+        3000
+      );
+    }
   };
 
   render() {
@@ -64,6 +75,7 @@ export default class Game extends Component {
                   </Fragment>
                 );
               }
+              return null;
             })
           : null}
       </div>
