@@ -11,6 +11,8 @@ export default class Game extends Component {
     this.state = {
       questions: [],
       currentQuestion: 0,
+      activeClassIndex: null,
+      activeClass: "",
     };
   }
 
@@ -22,9 +24,13 @@ export default class Game extends Component {
 
   checkAnswer = (e) => {
     const selectedAnswer = Number(e.target.value);
-
-    this.state.questions[this.state.currentQuestion].correct_answer ===
+    const isCorrect =
+      this.state.questions[this.state.currentQuestion].correct_answer ===
       selectedAnswer;
+    this.setState({
+      activeClassIndex: selectedAnswer,
+      activeClass: isCorrect ? "correct" : "wrong",
+    });
   };
 
   render() {
@@ -34,14 +40,19 @@ export default class Game extends Component {
           ? this.state.questions.map((question, id) => {
               if (id === this.state.currentQuestion) {
                 return (
-                  <Fragment>
+                  <Fragment key={id}>
                     <div className="question">{question.question}</div>
                     <br />
-                    <div className="options">
+                    <div className="options" key={id}>
                       {question.options.map((option, id) => {
                         return (
                           <button
-                            className="option"
+                            key={id}
+                            className={`option ${
+                              this.state.activeClassIndex === id
+                                ? `${this.state.activeClass}`
+                                : ""
+                            }`}
                             value={id}
                             onClick={this.checkAnswer}
                           >
